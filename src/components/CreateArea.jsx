@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { Fab } from "@mui/material";
+import { IoMdAdd } from "react-icons/io";
 
-export const CreateArea = () => {
+export const CreateArea = (props) => {
   const [note, setNote] = useState({
     title: "",
     content: "",
   });
 
   const handleChange = (event) => {
-    console.log(event.target);
     const { name, value } = event.target;
 
     setNote((prevNote) => {
@@ -16,6 +17,16 @@ export const CreateArea = () => {
         [name]: value,
       };
     });
+  };
+
+  const submitNote = (event) => {
+    props.onAdd(note);
+
+    setNote({
+      title: "",
+      content: "",
+    });
+    event.preventDefault();
   };
 
   return (
@@ -35,6 +46,9 @@ export const CreateArea = () => {
           onChange={handleChange}
           value={note.content}
         />
+        <Fab onClick={submitNote}>
+          <IoMdAdd style={{ fontSize: "24px" }} />
+        </Fab>
       </form>
     </div>
   );
