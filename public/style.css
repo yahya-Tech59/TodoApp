@@ -90,7 +90,8 @@ form.create-note textarea {
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
-}
+}            onDelete={deleteNote}
+
 form.create-note button {
   position: absolute;
   right: 18px;

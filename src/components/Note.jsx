@@ -11,7 +11,7 @@ export const Note = (props) => {
       <h1>{props.title}</h1>
       <p>{props.content}</p>
       <button onClick={handleClick}>
-        <MdDelete />
+        <MdDelete style={{ fontSize: "24px" }} />
       </button>
     </div>
   );
